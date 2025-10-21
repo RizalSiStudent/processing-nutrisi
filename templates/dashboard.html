@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analisis Nutrisi</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .header { background-color: #007bff; color: white; padding: 30px; text-align: center; margin-bottom: 20px; }
+        .header h1 { margin: 0; }
+        .container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .card { background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; width: calc(50% - 30px); box-sizing: border-box; }
+        .card h2 { color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        .card img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard Analisis Nutrisi Makanan</h1>
+        <p>Visualisasi Hasil Processing Data dari Notebook</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Perbandingan Kandungan Gizi (Abon vs Ayam)</h2>
+            <img src="{{ url_for('static', filename=plots['abon_ayam']) }}" alt="Bar Plot Abon vs Ayam">
+        </div>
+
+        <div class="card">
+            <h2>Top 5 Makanan dengan Kalori Tertinggi</h2>
+            <img src="{{ url_for('static', filename=plots['top5_kalori']) }}" alt="Bar Plot Top 5 Kalori">
+        </div>
+
+        <div class="card">
+            <h2>Distribusi Kalori Makanan Populer</h2>
+            <img src="{{ url_for('static', filename=plots['pie_kalori']) }}" alt="Pie Chart Kalori">
+        </div>
+
+        <div class="card">
+            <h2>5 Makanan dengan Lemak Tertinggi</h2>
+            <img src="{{ url_for('static', filename=plots['top5_lemak']) }}" alt="Scatter Plot Top 5 Lemak">
+        </div>
+    </div>
+
+</body>
+</html>
